@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'next/router'
 import { withNamespaces } from '../i18n'
 
 class SecondPage extends React.Component {
@@ -11,9 +12,10 @@ class SecondPage extends React.Component {
     return (
       <React.Fragment>
         <h1>{this.props.t('h1')}</h1>
+        <p>{this.props.router.query.id}</p>
       </React.Fragment>
     )
   }
 }
 
-export default withNamespaces('second-page')(SecondPage)
+export default withNamespaces('second-page')(withRouter(SecondPage))

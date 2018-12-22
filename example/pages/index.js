@@ -21,6 +21,9 @@ class Homepage extends React.Component {
         <Link href='/second-page'>
           <a>{t('to-second-page')}</a>
         </Link>
+        <Link href='/second-page?id=demo' as='/second-page/demo'>
+          <a>{t('to-second-page')}</a>
+        </Link>
         <Footer />
       </React.Fragment>
     )

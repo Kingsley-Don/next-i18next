@@ -11,7 +11,11 @@ const handle = app.getRequestHandler();
   await app.prepare()
   const server = express()
 
-  nextI18NextMiddleware(nextI18next, app, server)
+  const routeMap = [
+    ['/second-page/:id', ({ params: { id } }) => ['/second-page', { id }]],
+  ]
+
+  nextI18NextMiddleware(nextI18next, app, server, routeMap)
 
   server.get('*', (req, res) => handle(req, res))
 
